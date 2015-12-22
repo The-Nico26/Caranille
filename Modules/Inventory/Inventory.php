@@ -10,9 +10,10 @@ require_once 'Functions/SQL.php';
 
 redirectToLogin($accountID, $linkRoot);
 redirectToBattle($verifyBattle, $linkRoot);
-$inventoryID = htmlspecialchars(addslashes($_POST['Inventory_ID']));
-$itemID = htmlspecialchars(addslashes($_POST['Item_ID']));
+$inventoryID = htmlspecialchars(addslashes($_POST['InventoryID']));
+$itemID = htmlspecialchars(addslashes($_POST['itemID']));
 $itemType = htmlspecialchars(addslashes($_POST['itemType']));
+
 
 if($itemType == 'Armor' || $itemType == 'Boots' || $itemType == 'Gloves' || $itemType == 'Helmet' || $itemType == 'Weapon')
 {

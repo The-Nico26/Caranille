@@ -165,8 +165,8 @@ function verifyEquip($bdd, $characterID, $itemType, $equipmentID, $equip)
 
 function showAllEquipments($bdd, $characterID, $itemType)
 {
-	global $inventory11, $inventory12, $inventory13, $inventory14, $inventory15, $inventory15, $inventory16, $inventory17, $inventory19, $inventory20, $inventory21, $inventory22, $inventory24, $inventory25, $inventory26, $inventory35; ?>
-	<?php
+	global $inventory11, $inventory12, $inventory13, $inventory14, $inventory15, $inventory15, $inventory16, $inventory17, $inventory19, $inventory20, $inventory21, $inventory22, $inventory24, $inventory25, $inventory26, $inventory35;
+
 	$Item_Query = $bdd->prepare("SELECT * FROM Caranille_Inventory_Equipments, Caranille_Equipments
 	WHERE  Inventory_Equipment_Equipment_ID = Equipment_ID
 	AND Equipment_Type = ?
@@ -188,9 +188,8 @@ function showAllEquipments($bdd, $characterID, $itemType)
 		$magicEffect = stripslashes($Item['Equipment_Magic_Effect']);
 		$agilityEffect = stripslashes($Item['Equipment_Agility_Effect']);
 		$defenseEffect = stripslashes($Item['Equipment_Defense_Effect']);
-		$salePrice = stripslashes($Item['Equipment_Sale_Price']);
+		$salePrice = stripslashes($Item['Equipment_Sale_Price']);?>
 		
-		?>
 		<table class="table">
 		
 			<tr>
@@ -269,9 +268,9 @@ function showAllEquipments($bdd, $characterID, $itemType)
 					{
 						?>
 						<form method="POST" action="Inventory.php">
-							<input type="hidden" name="inventoryID" value="$inventoryID">
-							<input type="hidden" name="itemID" value="$ID">
-							<input type="hidden" name="itemType" value="$itemType">
+							<input type="hidden" name="inventoryID" value="<?= $inventoryID ?>">
+							<input type="hidden" name="itemID" value="<?= $ID ?>">
+							<input type="hidden" name="itemType" value="<?= $itemType ?>">
 							<?php
 							if($Item['Inventory_Equipment_Equipped'] == '0')
 							{
