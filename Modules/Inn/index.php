@@ -1,0 +1,24 @@
+<?php
+$timeStart = microtime(true);
+session_start();
+ob_start();
+if (empty($_SESSION)) { exit(header("Location: ../../index.php")); }
+
+require_once $_SESSION['File_Root'].'/Kernel/Include.php';
+require_once $_SESSION['File_Root'].'/HTML/Header.php';
+
+redirectToLogin($accountID, $linkRoot);
+redirectToBattle($verifyBattle, $linkRoot); ?>
+
+<br>
+	<div class="panel panel-warning">
+		<div class="panel-heading"></div>
+		<div class="panel-body">
+			<?= $inn0 ?> <?= $townPriceInn ?> <?= $inn1 ?><hr>
+			<form method="POST" action="Inn.php">
+				<input type="submit" class="btn btn-success" value="<?= $inn2 ?>">
+			</form>
+		</div>
+	</div>
+	
+<?php require_once $_SESSION['File_Root'].'/HTML/Footer.php' ?>
