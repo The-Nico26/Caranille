@@ -1,4 +1,8 @@
 # Editeur de MMORPG en PHP
+
+Editeur de ORPG crée par Jérémy Colombier
+
+Remerciement à Nicolas (TheNico) qui m'a bien aidé à refaire cette réecriture de Caranille
  
 Cette version est la réécriture complète de Caranille en PHP orientée objet avec pleins de nouveautés:
 
