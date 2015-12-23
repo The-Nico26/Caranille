@@ -108,7 +108,7 @@
     
 	//TRADUCTION OF STORY
 	$story1 = 'Commencer le chapitre';
-	$story2 = 'Bravo vous avez fini votre quête';
+	$story2 = 'Chaptire terminé';
 	
 	//TRADUCTION OF DUNGEON
     $dungeon1 = 'Lancer le combat';
@@ -295,7 +295,7 @@
 	$mission2 = 'Lancer le combat';
 	$mission3 = 'Vous n\'êtes dans aucune ville';
 	$mission4 = 'Vous devez être connecté pour accèder à cette zone';
-	$mission5 = 'Bravo, vous avez fini la mission';
+	$mission5 = 'Mission terminée';
 	
 	//TRADUCTION OF REGISTER
     $register0 = 'Avant de jouer veuillez vous créer un compte<br><br>';
@@ -334,12 +334,6 @@
     $top1 = 'Niveau';
     $top2 = 'Nom';
     $top3 = 'Prénom';
-    $top4 = 'HP';
-    $top5 = 'MP';
-    $top6 = 'Force';
-    $top7 = 'Magie';
-    $top8 = 'Agilité';
-    $top9 = 'Défense';
 
 	//TRADUCTION OF TOWN
     $town0 = 'Bienvenue à';
@@ -536,8 +530,8 @@
 	
 	//TRADUCTION OF EQUIPMENTS MODULES
     $aequipment0 = 'Que souhaitez-vous faire ?';
-    $aequipment1 = 'Modifier un objet';
-    $aequipment2 = 'Ajouter un objet';
+    $aequipment1 = 'Modifier un équipement';
+    $aequipment2 = 'Ajouter un équipement';
     $aequipment3 = 'Nom';
     $aequipment4 = 'Modifier';
     $aequipment5 = 'Supprimer';
@@ -560,9 +554,9 @@
 	$aequipment22 = 'Prix à l\'achat';
 	$aequipment23 = 'Prix de vente';
 	$aequipment24 = 'Sauvegarder l\'équipment';
-	$aequipment25 = 'L\'equipment a bien été modifié';
-	$aequipment26 = 'L\'equipment a bien été ajouté';
-	$aequipment27 = 'L\'equipment a bien été supprimé';
+	$aequipment25 = 'L\'equipement a bien été modifié';
+	$aequipment26 = 'L\'equipement a bien été ajouté';
+	$aequipment27 = 'L\'equipement a bien été supprimé';
 	
 	//TRADUCTION OF MAGICS MODULES
 	$amagics0 = 'Que souhaitez-vous faire ?';
@@ -635,7 +629,7 @@
 	$amonster15 = 'Agilité';
 	$amonster16 = 'Experience';
 	$amonster17 = 'Pièce d\'or';
-	$amonster18 = 'Sauvegarder le monstre';
+	$amonster18 = 'Sauvegarder';
 	$amonster19 = 'Le monstre a bien été modifié';
 	$amonster20 = 'Le monstre a bien été ajouté';
 	$amonster21 = 'Le monstre a bien été supprimé';
@@ -698,19 +692,19 @@
 	$atown22 = 'Ajouter la magie';
 	$atown23 = 'Supprimer la magie';
 	$atown24 = 'La magie a bien été ajoutée';
-	$atown25 = 'Rajouter une nouvelle magie';
+	$atown25 = 'Ajouter une nouvelle magie';
 	$atown26 = 'Ajouter l\'objet';
 	$atown27 = 'Supprimer l\'objet';
 	$atown28 = 'Liste des objets';
 	$atown29 = 'L\'objet a bien été ajouté';
 	$atown30 = 'L\'objet a bien été supprimé';
-	$atown31 = 'Rajouter un nouvel objet';
+	$atown31 = 'Ajouter un nouvel objet';
 	$atown32 = 'Ajouter l\'équipement';
 	$atown33 = 'Supprimer l\'équipement';
 	$atown34 = 'Liste des équipements';
 	$atown35 = 'L\'équipement a bien été ajouté';
 	$atown36 = 'L\'équipement a bien été supprimé';
-	$atown37 = 'Rajouter un nouvel équipement';
+	$atown37 = 'Ajouter un nouvel équipement';
 	$atown38 = 'Gérer les équipements';
 	$atown39 = 'Gérer les magies';
 	$atown40 = 'Gérer les objets';
