@@ -334,12 +334,6 @@
     $top1 = 'Level';
     $top2 = 'Last Name';
     $top3 = 'First Name';
-    $top4 = 'HP';
-    $top5 = 'MP';
-    $top6 = 'Strength';
-    $top7 = 'Magic';
-    $top8 = 'Agility';
-    $top9 = 'Defense';
 
 	//TRADUCTION OF TOWN
     $town0 = 'Welcome to';
