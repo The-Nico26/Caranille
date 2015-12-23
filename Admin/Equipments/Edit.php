@@ -46,7 +46,7 @@ $equipmentSale = $equipment->getSale(); ?>
 				</select><br>
 			<?= $aequipment11 ?><br> <input class="form-control" type="number" name="equipmentLevel" value="<?= $equipmentLevel ?>" required><br>
 			<?= $aequipment12 ?><br> <input class="form-control" type="text" name="equipmentName" placeholder="<?= $aequipment12 ?>" value="<?= $equipmentName ?>" required><br>
-			<?= $aequipment13 ?><br> <textarea class="form-control" name="equipmentDescription" placeholder="<?= $aequipment13 ?>" required>$equipmentDescription</textarea><br>
+			<?= $aequipment13 ?><br> <textarea class="form-control" name="equipmentDescription" placeholder="<?= $aequipment13 ?>" required><?= $equipmentDescription ?></textarea><br>
 			<?= $aequipment14 ?><br> <input class="form-control" type="number" name="equipmentHP" value="<?= $equipmentHP ?>" required><br>
 			<?= $aequipment15 ?><br> <input class="form-control" type="number" name="equipmentMP" value="<?= $equipmentMP ?>" required><br>
 			<?= $aequipment16 ?><br> <input class="form-control" type="number" name="equipmentStrength" value="<?= $equipmentStrength ?>" required><br>
