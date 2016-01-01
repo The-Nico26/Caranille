@@ -69,14 +69,11 @@
 								<li><a href="<?= $_SESSION['Link_Root'].'/Modules/Character/index.php' ?>"><?= $header4 ?></a></li>
 								<li><a href="<?= $_SESSION['Link_Root'].'/Modules/SkillPoint/index.php' ?>"><?= $header21 ?></a></li>
 								<li><a href="<?= $_SESSION['Link_Root'].'/Modules/Inventory/index.php' ?>"><?= $header5 ?></a></li>
-								<li><a href="<?= $_SESSION['Link_Root'].'/Modules/Logout/index.php' ?>"><?= $header10 ?></a></li>
 								<?php
 							}
 							else
 							{
 								?>
-								<li><a href="<?= $_SESSION['Link_Root'].'/Modules/Register/index.php' ?>"><?= $header16 ?></a></li>
-								<li><a href="<?= $_SESSION['Link_Root'].'/Modules/Login/index.php' ?>"><?= $header17 ?></a></li>
 								<li><a href="<?= $_SESSION['Link_Root'].'/Modules/DeleteAccount/index.php' ?>"><?= $header19 ?></a></li>
 								<?php
 							}
@@ -114,6 +111,16 @@
 								<li><a href="<?php echo $_SESSION['Link_Root'] ."/Admin/index.php"; ?>"><?= $header25 ?></a></li>
 								<?php
 							}	
+							?>
+							<li><a href="<?= $_SESSION['Link_Root'].'/Modules/Logout/index.php' ?>"><?= $header10 ?></a></li>
+							<?php
+						}
+						else
+						{
+							?>
+							<li><a href="<?= $_SESSION['Link_Root'].'/Modules/Register/index.php' ?>"><?= $header16 ?></a></li>
+							<li><a href="<?= $_SESSION['Link_Root'].'/Modules/Login/index.php' ?>"><?= $header17 ?></a></li>
+							<?php
 						}
 						?>
 	            		</ul>
