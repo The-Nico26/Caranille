@@ -1,5 +1,9 @@
 <?php
     session_start();
+	require_once '../Kernel/Config/Server.php';
+	require_once '../Kernel/Functions/Security.php';
+	$_SESSION['File_Root'] = $fileRoot;
+    $_SESSION['Link_Root'] = $linkRoot;
 	include_once "header.php";
 ?>
 

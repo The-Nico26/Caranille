@@ -111,7 +111,7 @@ CREATE TABLE IF NOT EXISTS `Caranille_Chat`
 CREATE TABLE IF NOT EXISTS `Caranille_Configuration` 
 (
   `Configuration_ID` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  `Configuration_MMORPG_Name` varchar(30) NOT NULL,
+  `Configuration_RPG_Name` varchar(30) NOT NULL,
   `Configuration_Presentation` text NOT NULL,
   `Configuration_Access` varchar(10) NOT NULL,
   `Configuration_Skill_Point` int(11) NOT NULL

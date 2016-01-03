@@ -7,7 +7,7 @@ require_once $_SESSION['File_Root'].'/HTML/Header.php';
 require_once 'Functions/SQL.php';
 
 $accountPseudo = htmlspecialchars(addslashes($_POST['accountPseudo']));
-$accountPassword = htmlspecialchars(addslashes($_POST['accountPassword']));
+$accountPassword = sha1(htmlspecialchars(addslashes($_POST['accountPassword'])));
 
 $account = findAccount($bdd, $accountPseudo); ?>
 
@@ -17,7 +17,7 @@ $account = findAccount($bdd, $accountPseudo); ?>
 		<div class="panel-body">
 		
 <?php
-if (DeCryptMDP($accountPassword, $account['Account_Password'])) 
+if ($accountPassword == $account['Account_Password']) 
 {
     $ID = findIdByPseudo($bdd, $accountPseudo);
     $account = newAccount($bdd, $ID);
@@ -47,10 +47,10 @@ if (DeCryptMDP($accountPassword, $account['Account_Password']))
     {
     	echo "$login6" .$account->getReason(). "";
     }
-} 
-else 
+}
+else
 {
-    echo $login5;
+	echo "$login5";
 }
 
 ?>

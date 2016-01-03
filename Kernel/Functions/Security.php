@@ -69,19 +69,3 @@ function redirectToLogin($accountID, $linkRoot)
     	exit(header("Location: $linkRoot/Modules/Login/index.php"));
     }
 }
-
-function DeCryptMDP($password, $passwordCrypt)
-{
-    return crypt(sha1(md5($password)), $passwordCrypt) == $passwordCrypt;
-}
-
-function CryptMDP($password, $pseudo)
-{
-    $mdp = sha1(md5($password));
-    $salt = uniqid($pseudo, true);
-    $algo = '6';
-    $rounds = 'rounds=6219';
-    $cryptSalt = '$'.$algo.'$'.$rounds.'$'.$salt.'$';
-    $cryptMdp = crypt($mdp, $cryptSalt);
-    return $cryptMdp;
-}

@@ -6,7 +6,7 @@ function showConfiguration($bdd)
 	
 	foreach($bdd->query("SELECT * FROM Caranille_Configuration") as $configuration) 
 	{
-		$configurationName = stripslashes($configuration['Configuration_MMORPG_Name']);
+		$configurationName = stripslashes($configuration['Configuration_RPG_Name']);
 		$configurationPresentation = stripslashes($configuration['Configuration_Presentation']);
 		$configurationAccess = stripslashes($configuration['Configuration_Access']);
 		?>
@@ -45,7 +45,7 @@ function showConfiguration($bdd)
 function updateConfiguration($bdd, $configurationName, $configurationPresentation, $configurationAccess)
 {
 	$updateConfiguration = $bdd->prepare('UPDATE Caranille_Configuration 
-	SET Configuration_MMORPG_Name = :confName,
+	SET Configuration_RPG_Name = :confName,
 	Configuration_Presentation = :confPresentation,
 	Configuration_Access = :confAccess
 	WHERE Configuration_ID = 1');

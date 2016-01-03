@@ -9,7 +9,7 @@ require_once 'Functions/SQL.php';
 if (isset($_POST['accountPseudo']) && ($_POST['accountPassword']) && ($_POST['accountPasswordConfirm']) && ($_POST['accountEmail']) && ($_POST['characterLastName']) && ($_POST['characterFirstName'])) 
 {
     $accountPseudo = htmlspecialchars(addslashes($_POST['accountPseudo']));
-    $accountPassword = htmlspecialchars(addslashes($_POST['accountPassword']));
+    $accountPassword = sha1(htmlspecialchars(addslashes($_POST['accountPassword'])));
     $accountPasswordConfirm = htmlspecialchars(addslashes($_POST['accountPasswordConfirm']));
     $accountEmail = htmlspecialchars(addslashes($_POST['accountEmail']));
     $characterLastName = htmlspecialchars(addslashes($_POST['characterLastName']));
@@ -27,7 +27,6 @@ if (isset($_POST['accountPseudo']) && ($_POST['accountPassword']) && ($_POST['ac
 
                 if ($characterList == 0)
                 {
-                    $accountPassword = CryptMDP($accountPassword, $accountPseudo);
                     addAccount($bdd, $accountPseudo, $accountPassword, $accountEmail);
                     $ID = findIdByPseudo($bdd, $accountPseudo);
                     addCharacter($bdd, $ID, $characterLastName, $characterFirstName);

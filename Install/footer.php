@@ -3,12 +3,6 @@
 			<div class="panel panel-info">
 				<div class="panel-body">
 					<center><a href="https://github.com/Caranille/Caranille">RPG made with Caranille</a><br/>
-					<?php
-						$timeEnd = microtime(true);
-						$time = $timeEnd - $timeStart;
-						$pageLoadTime = number_format($time, 3);
-						echo "Execution time: {$pageLoadTime} seconds</center>";
-					?>
 				</div>
 			</div>
 		</p>

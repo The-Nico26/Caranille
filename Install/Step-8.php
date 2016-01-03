@@ -7,23 +7,21 @@
 
    $language = $_SESSION['Language'];
    require_once "../Kernel/Locales/{$language}/Words.php";
-	include_once "header.php";
-?>
+	include_once "header.php"; ?>
     <div class="important"><?= $install38 ?></div>
     <br><br>
     <?php
-    $mmorpgName = htmlspecialchars(addslashes($_POST['MMORPG_Name']));
+    $rpgName = htmlspecialchars(addslashes($_POST['rpgName']));
     $presentation = htmlspecialchars(addslashes($_POST['Presentation']));
     $pseudo = htmlspecialchars(addslashes($_POST['Pseudo']));
     $email = htmlspecialchars(addslashes($_POST['Email']));
 
-    if (isset($_POST['MMORPG_Name']) && ($_POST['Presentation']) && ($_POST['Pseudo']) && ($_POST['Password']) && ($_POST['Email'])) :
-        $password = htmlspecialchars(addslashes($_POST['Password']));
-        $passwordConfirm = htmlspecialchars(addslashes($_POST['Password_Confirm']));
+    if (isset($_POST['rpgName']) && ($_POST['Presentation']) && ($_POST['Pseudo']) && ($_POST['Password']) && ($_POST['Email'])) :
+        $password = sha1(htmlspecialchars(addslashes($_POST['Password'])));
+        $passwordConfirm = sha1(htmlspecialchars(addslashes($_POST['Password_Confirm'])));
         if ($password == $passwordConfirm) :
         	$date = date('Y-m-d H:i:s');
 	        $ip = $_SERVER['REMOTE_ADDR'];
-	        $password = CryptMDP($password, $pseudo);
 
 	        $addAccount = $bdd->prepare("INSERT INTO Caranille_Accounts VALUES(
 	        '',
@@ -94,12 +92,12 @@
 	        '1')");
 	
 	        $mmorpg = $bdd->prepare("UPDATE Caranille_Configuration
-	        SET Configuration_MMORPG_Name = :mmorpgName,
+	        SET Configuration_RPG_Name = :rpgName,
 	        Configuration_Presentation = :presentation
 	        ");
 	
 	        $mmorpg->execute([
-	        'mmorpgName' => $mmorpgName,
+	        'rpgName' => $rpgName,
 	        'presentation' => $presentation]);
 	        $bdd->exec("INSERT INTO Caranille_News VALUES(
 		    '',
