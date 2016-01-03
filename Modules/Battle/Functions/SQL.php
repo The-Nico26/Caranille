@@ -35,19 +35,27 @@ function addDrop($bdd, $monsterID, $characterID)
 		$rando = rand(0,1000);
 		if($rando <= $drop['Monster_Drop_Luck'])
 		{
-			if($drop['Monster_Drop_Type'] == "item")
+			if($drop['Monster_Drop_Item_Type'] == "item")
 			{
 				$addItem = $bdd->prepare("INSERT INTO Caranille_Inventory_Items VALUES('', :characterID, :itemID)");
 				$addItem->execute(array('characterID'=> $characterID, 'itemID'=> $drop['Monster_Drop_Item_ID']));
 				$addItem->closeCursor();
 			}
-			if($drop['Monster_Drop_Type'] == "equipment")
+			if($drop['Monster_Drop_Item_Type'] == "equipment")
 			{
-				$addEquipment = $bdd->prepare("INSERT INTO Caranille_Inventory_Equipments VALUES('', :characterID, :itemID, '0')");
-				$addEquipment->execute(array('characterID'=> $characterID, 'itemID'=> $drop['Monster_Drop_Item_ID']));
-				$addEquipment->closeCursor();
+				$number = verifyEquipment($bdd, $drop['Monster_Drop_Item_ID'], $characterID);
+				if ($number <= 0)
+				{
+					$addEquipment = $bdd->prepare("INSERT INTO Caranille_Inventory_Equipments VALUES('', :characterID, :itemID, '1', '0')");
+					$addEquipment->execute(array('characterID'=> $characterID, 'itemID'=> $drop['Monster_Drop_Item_ID']));
+					$addEquipment->closeCursor();
+				}
+				else
+				{
+					updateEquipment($bdd, $characterID, $drop['Monster_Drop_Item_ID']);
+				}
 			}
-			showDrop($bdd, $drop['Monster_Drop_Item_ID']);
+			showDrop($bdd, $drop['Monster_Drop_Item_ID'], $drop['Monster_Drop_Item_Type']);
 		}
 	}
 	$selectDrop->closeCursor();
@@ -86,15 +94,29 @@ function showChapterReward($bdd, $characterID, $battleChapterID)
 	}
 }
 
-function showDrop($bdd, $itemID)
+function showDrop($bdd, $itemID, $itemType)
 {
 	global $battle34;
-	$itemQuery = $bdd->prepare("SELECT * FROM Caranille_Items WHERE Item_ID = ?");
-	$itemQuery->execute([$itemID]);
-	while($item = $itemQuery->fetch())
+	
+	if ($itemType == "Item")
 	{
-    	 $itemName = stripslashes($item['Item_Name']);
-    	 echo "$battle34 $itemName <br />";
+		$itemQuery = $bdd->prepare("SELECT * FROM Caranille_Items WHERE Item_ID = ?");
+		$itemQuery->execute([$itemID]);
+		while($item = $itemQuery->fetch())
+		{
+	    	 $itemName = stripslashes($item['Item_Name']);
+	    	 echo "$battle34 $itemName <br />";
+		}
+	}
+	else
+	{
+		$EquipmentQuery = $bdd->prepare("SELECT * FROM Caranille_Equipments WHERE Equipment_ID = ?");
+		$EquipmentQuery->execute([$itemID]);
+		while($Equipment = $EquipmentQuery->fetch())
+		{
+	    	 $EquipmentName = stripslashes($Equipment['Equipment_Name']);
+	    	 echo "$battle34 $EquipmentName <br />";
+		}
 	}
 }
 
@@ -338,4 +360,26 @@ function useINN($bdd, $townPriceInn, $characterID)
     'Town_Price_INN' => $townPriceInn,
     'Character_ID' => $characterID]);
     $updateAccount->closeCursor();
+}
+
+function updateEquipment($bdd, $characterID, $equipmentID)
+{
+	global $equipmentShop16, $equipmentShop17;
+	
+	$updateEquipment = $bdd->prepare("UPDATE Caranille_Inventory_Equipments SET Inventory_Equipment_Quantity = Inventory_Equipment_Quantity + 1
+	WHERE Inventory_Equipment_Character_ID = :characterID
+	AND Inventory_Equipment_Equipment_ID = :equipmentID");
+	$updateEquipment->execute(array('characterID'=> $characterID, 'equipmentID'=> $equipmentID));
+
+	$updateEquipment->closeCursor();
+}
+
+function verifyEquipment($bdd, $equipmentID, $characterID)
+{
+	$equipmentQuantitysQuery = $bdd->prepare("SELECT * FROM Caranille_Inventory_Equipments
+	WHERE Inventory_Equipment_Equipment_ID = ?
+	AND Inventory_Equipment_Character_ID= ?");
+	$equipmentQuantitysQuery->execute([$equipmentID, $characterID]);
+	$equipmentQuantity = $equipmentQuantitysQuery->rowCount();
+	return $equipmentQuantity;
 }

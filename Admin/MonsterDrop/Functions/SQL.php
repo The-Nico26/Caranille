@@ -15,15 +15,15 @@ function addMonsterDrops($bdd, $monsterID, $itemID, $lucky, $type)
     '',
     :monsterID,
     :itemID,
+    :type,
     :lucky
-    :type
     )");
 
     $addMonsterTown->execute([
     'monsterID' => $monsterID,
     'itemID' => $itemID,
-    'lucky' => $lucky,
-    'type' => $type]);
+    'type' => $type,
+    'lucky' => $lucky]);
 
     $addMonsterTown->closeCursor();
 }

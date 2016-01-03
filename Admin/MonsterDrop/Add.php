@@ -17,23 +17,27 @@ $monsterID = htmlspecialchars(addslashes($_POST['monsterID']));
 $itemID = htmlspecialchars(addslashes($_POST['itemID']));
 $equipmentID = htmlspecialchars(addslashes($_POST['equipmentID']));
 
-if($luck > 1000){
+if($luck > 1000)
+{
 	$luck = 1000;
 }
-if($luck < 0){
+
+if($luck < 0)
+{
 	$luck = 0;
 }
+
 if($itemID != 0)
 	addMonsterDrops($bdd, $monsterID, $itemID, $luck, "item"); 
 if($equipmentID != 0)
-	addMonsterDrops($bdd, $monsterID, $itemID, $luck, "equipment");
+	addMonsterDrops($bdd, $monsterID, $equipmentID, $luck, "equipment");
 ?>
 
-<?= $atown16 ?>
+<?= $amonsterDrop4 ?>
 
 <form method="POST" action="index.php">
 	<input type="hidden" name="monsterID" value="<?= $monsterID ?>">
-	<input class="btn btn-success" type="submit" value="<?= $atown17 ?>">
+	<input class="btn btn-success" type="submit" value="<?= $amonsterDrop5 ?>">
 </form>
 <br/>
 
