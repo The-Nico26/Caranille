@@ -637,9 +637,11 @@
 	
 	//TRADUCTION OF MONSTER DROP
 	$amonsterDrop0 = 'Liste des objets';
-	$amonsterDrop1 = 'Taux d\'obtention';
+	$amonsterDrop1 = 'Taux d\'obtention (en pour 1000)';
 	$amonsterDrop2 = 'Ajouter l\'objet';
 	$amonsterDrop3 = 'Supprimer l\'objet';
+	$amonsterDrop4 = 'Ajout effectué';
+	$amonsterDrop5 = "Nouvel ajout";
 	
 	//TRADUCTION OF parchmentS MODULES
     $aparchment0 = 'Que souhaitez-vous faire ?';

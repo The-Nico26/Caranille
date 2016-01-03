@@ -31,7 +31,7 @@ function showAllItemsList($bdd)
 {
 	?>
 	<select name="itemID" class="form-control" >
-    	<option value="0"> No Items</option>
+		<option value="0"> No Items</option>
 	<?php
 	foreach($bdd->query("SELECT * FROM Caranille_Items") as $itemList) 
 	{
@@ -50,7 +50,7 @@ function showAllEquipmentsList($bdd)
 {
 	?>
 	<select name="equipmentID" class="form-control">
-    	<option value="0">No Equipments</option>
+		<option value="0">No Equipments</option>
 	<?php
 	foreach($bdd->query("SELECT * FROM Caranille_Equipments") as $equipmentList) 
 	{
@@ -70,8 +70,7 @@ function showMonsterDrops($bdd, $monsterID)
 	global $atown19, $atown20, $amonsterDrop3;
 	
 	$showMonsterDrop = $bdd->prepare('SELECT * FROM Caranille_Monsters_Drops
-	WHERE Monster_Drop_Monster_ID = ?
-	');
+	WHERE Monster_Drop_Monster_ID = ?');
 	
     $showMonsterDrop->execute([$monsterID]); ?>
 	<br>
@@ -84,10 +83,21 @@ function showMonsterDrops($bdd, $monsterID)
     <?php
     while ($item = $showMonsterDrop->fetch()) 
     {
-		$monsterDropID = stripslashes($item['Monster_Drop_ID']); ?>
+		$monsterDropID = stripslashes($item['Monster_Drop_ID']);
+		$monsterDropType = stripslashes($item['Monster_Drop_Item_Type'])?>
         <tr>
             <td>
-            	<?=  newItem($bdd, $item['Monster_Drop_Item_ID'])->getName() ?>
+			<?php
+			if ($monsterDropType == "item")
+			{
+				echo newItem($bdd, $item['Monster_Drop_Item_ID'])->getName();
+			}
+			else
+			{
+				echo newEquipment($bdd, $item['Monster_Drop_Item_ID'])->getName();
+			}
+			?>
+            	
             </td>
             <td>
             	<?= $item['Monster_Drop_Luck']."/1000" ?>

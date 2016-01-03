@@ -637,9 +637,11 @@
 
 	//TRADUCTION OF MONSTER DROP
 	$amonsterDrop0 = 'Items list';
-	$amonsterDrop1 = 'Item rate';
+	$amonsterDrop1 = 'Item rate (In per thousand)';
 	$amonsterDrop2 = 'Add this item';
 	$amonsterDrop3 = 'Delete this item';
+	$amonsterDrop4 = 'Adding completed';
+	$amonsterDrop5 = "New add";
 	
 	//TRADUCTION OF parchmentS MODULES
     $aparchment0 = 'Que souhaitez-vous faire ?';
