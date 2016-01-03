@@ -10,7 +10,7 @@ if (isset($_POST['accountPseudo']) && ($_POST['accountPassword']) && ($_POST['ac
 {
     $accountPseudo = htmlspecialchars(addslashes($_POST['accountPseudo']));
     $accountPassword = sha1(htmlspecialchars(addslashes($_POST['accountPassword'])));
-    $accountPasswordConfirm = htmlspecialchars(addslashes($_POST['accountPasswordConfirm']));
+    $accountPasswordConfirm = sha1(htmlspecialchars(addslashes($_POST['accountPasswordConfirm'])));
     $accountEmail = htmlspecialchars(addslashes($_POST['accountEmail']));
     $characterLastName = htmlspecialchars(addslashes($_POST['characterLastName']));
     $characterFirstName = htmlspecialchars(addslashes($_POST['characterFirstName']));
